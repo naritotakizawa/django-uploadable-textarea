@@ -4,6 +4,7 @@
 ```
 git clone https://github.com/naritotakizawa/django-uploadable-textarea
 cd django-uploadable-textarea
+pip install django pillow
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
