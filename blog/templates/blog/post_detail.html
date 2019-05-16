@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <a href="{% url 'blog:post_list' %}">記事一覧</a>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.text | safe }}</p>
+{% endblock %}

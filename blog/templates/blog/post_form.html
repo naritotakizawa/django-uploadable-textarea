@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <a href="{% url 'blog:post_list' %}">記事一覧</a>
+    <h1>記事の追加</h1>
+    <form action="" method="POST">
+        {{ form.as_p }}
+        {{ form.media }}
+        {% csrf_token %}
+        <button type="submit">送信</button>
+    </form>
+{% endblock %}

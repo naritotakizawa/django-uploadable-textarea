@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <a href="{% url 'blog:post_add' %}">記事追加</a>
+    <h1>記事一覧</h1>
+    {% for post in post_list %}
+        <p><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></p>
+    {% endfor %}
+{% endblock %}
