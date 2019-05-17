@@ -7,9 +7,9 @@ class ImageUploadableTextArea(forms.Textarea):
     class Media:
         js = ['blog/csrf.js', 'blog/upload.js']
 
-    def build_attrs(self, base_attrs, extra_attrs=None):
-        if 'class' in base_attrs:
-            base_attrs['class'] += ' uploadable vLargeTextField'
+    def __init__(self, attrs=None):
+        super().__init__(attrs)
+        if 'class' in self.attrs:
+            self.attrs['class'] += ' uploadable vLargeTextField'
         else:
-            base_attrs['class'] = 'uploadable vLargeTextField'
-        return super().build_attrs(base_attrs, extra_attrs)
+            self.attrs['class'] = 'uploadable vLargeTextField'
