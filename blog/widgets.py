@@ -1,8 +1,9 @@
 from django import forms
+from django.urls import reverse_lazy
 
 
-class ImageUploadableTextArea(forms.Textarea):
-    """画像アップロード可能なテキストエリア"""
+class FileUploadableTextArea(forms.Textarea):
+    """ファイルアップロード可能なテキストエリア"""
 
     class Media:
         js = ['blog/csrf.js', 'blog/upload.js']
@@ -13,3 +14,4 @@ class ImageUploadableTextArea(forms.Textarea):
             self.attrs['class'] += ' uploadable vLargeTextField'
         else:
             self.attrs['class'] = 'uploadable vLargeTextField'
+        self.attrs['data-url'] = reverse_lazy('blog:upload')

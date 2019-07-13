@@ -1,7 +1,7 @@
 from django.http import HttpResponseBadRequest, JsonResponse
 from django.urls import reverse_lazy
 from django.views import generic
-from .forms import ImageUploadForm, PostForm
+from .forms import FileUploadForm, PostForm
 from .models import Post
 
 
@@ -23,8 +23,8 @@ class PostAdd(generic.CreateView):
 
 
 def upload(request):
-    """画像のアップロード用ビュー"""
-    form = ImageUploadForm(files=request.FILES)
+    """ファイルのアップロード用ビュー"""
+    form = FileUploadForm(files=request.FILES)
     if form.is_valid():
         url = form.save()
         return JsonResponse({'url': url})
